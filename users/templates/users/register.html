@@ -13,7 +13,7 @@
         <!-- Left Section -->
         <div class="signup-image">
           <img
-            src="{% static 'users/images/onBeach.jpg' %}"
+            src="C:\Users\User\Desktop\woman-swimsuit-sunbathing-lying-on-600nw-688987225.webp"
             alt="Relaxing on the beach"
           />
           <div class="signup-info">
@@ -28,9 +28,13 @@
         <div class="signup-form">
           <h2>Unlock more savings as a member</h2>
           <p>Log in or create account with your email</p>
-          <input type="email" placeholder="Enter email address" required />
-          <input type="password" placeholder="Enter password" required />
-          <button class="btn-continue">Continue</button>
+          <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Enter username" required /> <!-- Added username field -->
+            <input type="email" name="email" placeholder="Enter email address" required /> <!-- Updated to include 'name' attribute -->
+            <input type="password" name="password" placeholder="Enter password" required /> <!-- Updated to include 'name' attribute -->
+            <button type="submit" class="btn-continue">Continue</button>
+          </form>
           <div class="or-divider"></div>
           <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
         </div>
